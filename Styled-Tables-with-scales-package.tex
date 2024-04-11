@@ -1,0 +1,449 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Scales Package},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Scales Package}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection{TRYING TO RENDER PDF:
+/c/Users/Robert/AppData/Local/Programs/MiKTeX/miktex/bin/x64}\label{trying-to-render-pdf-cusersrobertappdatalocalprogramsmiktexmiktexbinx64}
+
+\subsection{\texorpdfstring{\href{https://www.youtube.com/watch?v=t30sqFch2v0}{PDF???}}{PDF???}}\label{pdf}
+
+typist tl;dw
+
+\subsection{R Styled tables using tidyverse, gt and the scales
+packages}\label{r-styled-tables-using-tidyverse-gt-and-the-scales-packages}
+
+\emph{ABBV} = Abbvie Inc., \emph{BTC} = Bitcoin, \emph{ETH} = Etherium
+
+{[}Torbjorn Storli0(https://www.youtube.com/watch?v=JCVlI4si46o\&t=203s)
+suggests checking out \{\emph{XTS}\} package that works with \{zoo\}
+package. These packages are included with \{\emph{quantmod}\}
+
+How-to
+\href{https://rstudio-conf-2022.github.io/get-started-quarto/materials/03-computation-editors.html\#/knitropts_chunk-defaults}{Quarto
+setup chunks}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{()}
+
+\FunctionTok{library}\NormalTok{(quantmod)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(gt)}
+\FunctionTok{library}\NormalTok{(scales)}
+
+\NormalTok{startdate }\OtherTok{=} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2014{-}01{-}01"}\NormalTok{)}
+\NormalTok{enddate }\OtherTok{=} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2024{-}04{-}09"}\NormalTok{)}
+
+ \CommentTok{\# get daily stock prices for Abbvie inc.}
+\FunctionTok{getSymbols}\NormalTok{(}\StringTok{"ABBV"}\NormalTok{, }\AttributeTok{from =}\NormalTok{ startdate, }\AttributeTok{to=}\NormalTok{enddate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "ABBV"
+\end{verbatim}
+
+Convert Daily stock prices to monthly stock prices
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monthly\_prices }\OtherTok{\textless{}{-}} \FunctionTok{to.period}\NormalTok{(ABBV, }\AttributeTok{period =} \StringTok{\textquotesingle{}months\textquotesingle{}}\NormalTok{, }\AttributeTok{OHLC =} \ConstantTok{FALSE}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(monthly\_prices)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+           ABBV.Open ABBV.High ABBV.Low ABBV.Close ABBV.Volume ABBV.Adjusted
+2014-01-31     49.94     50.55    49.07      49.23    12863500      32.62974
+2014-02-28     50.84     51.96    50.51      50.91     7095600      33.74325
+2014-03-31     51.34     51.70    50.95      51.40     4813100      34.06802
+2014-04-30     51.38     52.17    51.00      52.08     7430600      34.82764
+2014-05-30     53.98     54.43    53.89      54.33     4025600      36.33229
+2014-06-30     56.51     56.89    56.10      56.44     6229700      37.74332
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tail}\NormalTok{(monthly\_prices) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+           ABBV.Open ABBV.High ABBV.Low ABBV.Close ABBV.Volume ABBV.Adjusted
+2023-11-30    138.01    142.70   138.01     142.39     9297400      141.0424
+2023-12-29    154.54    155.21   154.41     154.97     3711400      153.5034
+2024-01-31    165.75    165.86   163.95     164.40     4993900      164.4000
+2024-02-29    177.87    178.02   175.39     176.05     7485700      176.0500
+2024-03-28    181.00    182.30   180.30     182.10     5418700      182.1000
+2024-04-08    169.21    171.97   168.40     169.80     4745000      169.8000
+\end{verbatim}
+
+Convert data to a tibble; and date index to its own column:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ABBV\_data }\OtherTok{\textless{}{-}} \FunctionTok{as\_tibble}\NormalTok{(monthly\_prices) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Date =} \FunctionTok{index}\NormalTok{(monthly\_prices))}
+\end{Highlighting}
+\end{Shaded}
+
+Clean up the ABBV tibble table
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ABBV\_tibble }\OtherTok{=}\NormalTok{ ABBV\_data }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{Open =}\NormalTok{ ABBV.Open,}
+        \AttributeTok{High =}\NormalTok{ ABBV.High,}
+        \AttributeTok{Low =}\NormalTok{ ABBV.Low,}
+        \AttributeTok{Close =}\NormalTok{ ABBV.Close,}
+        \AttributeTok{Volume =}\NormalTok{ ABBV.Volume,}
+        \AttributeTok{Adjusted =}\NormalTok{ ABBV.Adjusted) }\SpecialCharTok{|\textgreater{}}
+
+\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(Date, Open, High, Low, Close, Volume, Adjusted)}
+\end{Highlighting}
+\end{Shaded}
+
+Create a gt table
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ABBV\_gt }\OtherTok{\textless{}{-}} \FunctionTok{gt}\NormalTok{(ABBV\_tibble) }
+
+\NormalTok{ABBV\_tab }\OtherTok{\textless{}{-}}\NormalTok{ ABBV\_gt }\SpecialCharTok{|\textgreater{}}
+ \FunctionTok{tab\_header}\NormalTok{(}
+  
+    \AttributeTok{title =} \FunctionTok{md}\NormalTok{(}\StringTok{"**\textless{}font color = blue\textgreater{}Abbvie Inc, Monthly Stock Prices\textless{}/font\textgreater{}**"}\NormalTok{),}
+    \AttributeTok{subtitle =} \FunctionTok{md}\NormalTok{(}\StringTok{"**From** 2014 **to** 2024{-}04{-}09"}\NormalTok{)}
+\NormalTok{ ) }\SpecialCharTok{|\textgreater{}} 
+ \FunctionTok{cols\_width}\NormalTok{(}\FunctionTok{c}\NormalTok{(Date}\SpecialCharTok{:}\NormalTok{Adjusted)  }\SpecialCharTok{\textasciitilde{}} \FunctionTok{px}\NormalTok{(}\DecValTok{120}\NormalTok{)}
+\NormalTok{  )}
+
+\NormalTok{ABBV\_tab}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable*}{>{\raggedleft\arraybackslash}p{120px}>{\raggedleft\arraybackslash}p{120px}>{\raggedleft\arraybackslash}p{120px}>{\raggedleft\arraybackslash}p{120px}>{\raggedleft\arraybackslash}p{120px}>{\raggedleft\arraybackslash}p{120px}>{\raggedleft\arraybackslash}p{120px}}
+\caption*{
+{\large \textbf{Abbvie Inc, Monthly Stock Prices}} \\ 
+{\small \textbf{From} 2014 \textbf{to} 2024-04-09}
+} \\ 
+\toprule
+Date & Open & High & Low & Close & Volume & Adjusted \\ 
+\midrule\addlinespace[2.5pt]
+16101 & 49.94 & 50.55 & 49.07 & 49.23 & 12863500 & 32.62974 \\ 
+16129 & 50.84 & 51.96 & 50.51 & 50.91 & 7095600 & 33.74325 \\ 
+16160 & 51.34 & 51.70 & 50.95 & 51.40 & 4813100 & 34.06802 \\ 
+16190 & 51.38 & 52.17 & 51.00 & 52.08 & 7430600 & 34.82764 \\ 
+16220 & 53.98 & 54.43 & 53.89 & 54.33 & 4025600 & 36.33229 \\ 
+16251 & 56.51 & 56.89 & 56.10 & 56.44 & 6229700 & 37.74332 \\ 
+16282 & 53.13 & 53.40 & 52.30 & 52.34 & 15479900 & 35.26702 \\ 
+16311 & 55.75 & 55.80 & 55.24 & 55.28 & 7524400 & 37.24800 \\ 
+16343 & 58.26 & 58.81 & 57.73 & 57.76 & 8599000 & 38.91905 \\ 
+16374 & 63.06 & 63.99 & 62.37 & 63.46 & 15009900 & 43.07874 \\ 
+16402 & 69.00 & 69.48 & 68.89 & 69.20 & 2953700 & 46.97523 \\ 
+16435 & 66.72 & 67.10 & 65.35 & 65.44 & 3917300 & 44.42281 \\ 
+16465 & 62.09 & 62.68 & 60.12 & 60.35 & 17582500 & 41.27511 \\ 
+16493 & 60.53 & 60.99 & 60.37 & 60.50 & 8649100 & 41.37770 \\ 
+16525 & 58.01 & 58.81 & 57.71 & 58.54 & 12313600 & 40.03721 \\ 
+16555 & 65.39 & 65.92 & 64.32 & 64.66 & 10298600 & 44.58965 \\ 
+16584 & 67.22 & 67.52 & 66.39 & 66.59 & 9451000 & 45.92056 \\ 
+16616 & 68.00 & 68.22 & 66.66 & 67.19 & 11459600 & 46.33433 \\ 
+16647 & 70.38 & 70.38 & 69.73 & 70.01 & 6181300 & 48.63730 \\ 
+16678 & 64.14 & 64.31 & 62.25 & 62.41 & 15581100 & 43.35743 \\ 
+16708 & 53.54 & 54.50 & 53.36 & 54.41 & 11895500 & 37.79968 \\ 
+16738 & 57.87 & 60.73 & 57.66 & 59.55 & 27465600 & 41.75235 \\ 
+16769 & 59.96 & 60.21 & 57.96 & 58.15 & 12660200 & 40.77077 \\ 
+16800 & 59.50 & 59.93 & 59.20 & 59.24 & 6104800 & 41.53499 \\ 
+16829 & 53.42 & 55.31 & 53.42 & 54.90 & 17768700 & 38.89637 \\ 
+16860 & 55.87 & 56.00 & 54.47 & 54.61 & 8395100 & 38.69092 \\ 
+16891 & 57.02 & 57.46 & 56.82 & 57.12 & 4930300 & 40.46924 \\ 
+16920 & 61.03 & 61.45 & 60.48 & 61.00 & 13052700 & 43.63347 \\ 
+16952 & 62.71 & 63.49 & 62.64 & 62.93 & 7147900 & 45.01400 \\ 
+16982 & 61.79 & 62.02 & 61.14 & 61.91 & 7920600 & 44.28439 \\ 
+17011 & 65.27 & 66.40 & 65.15 & 66.23 & 10525000 & 47.79039 \\ 
+17044 & 64.21 & 64.45 & 63.50 & 64.10 & 6750000 & 46.25342 \\ 
+17074 & 62.67 & 63.26 & 62.45 & 63.07 & 7325400 & 45.51019 \\ 
+17105 & 57.06 & 57.30 & 55.72 & 55.78 & 14185800 & 40.62096 \\ 
+17135 & 61.63 & 61.84 & 60.63 & 60.80 & 9025200 & 44.27672 \\ 
+17165 & 62.73 & 62.93 & 62.41 & 62.62 & 5999200 & 45.60210 \\ 
+17197 & 60.01 & 61.32 & 59.75 & 61.11 & 8149800 & 44.95150 \\ 
+17225 & 62.11 & 62.40 & 61.69 & 61.84 & 6756100 & 45.48847 \\ 
+17256 & 65.46 & 65.52 & 65.15 & 65.16 & 4057800 & 47.93061 \\ 
+17284 & 66.06 & 66.32 & 65.44 & 65.94 & 5521100 & 48.98691 \\ 
+17317 & 66.24 & 66.41 & 65.61 & 66.02 & 6935800 & 49.04634 \\ 
+17347 & 72.57 & 72.82 & 72.21 & 72.51 & 4729100 & 53.86778 \\ 
+17378 & 70.52 & 70.58 & 69.83 & 69.91 & 7770400 & 52.40307 \\ 
+17409 & 74.11 & 75.40 & 73.92 & 75.30 & 6177600 & 56.44331 \\ 
+17438 & 88.69 & 89.35 & 87.67 & 88.86 & 6769400 & 66.60760 \\ 
+17470 & 90.88 & 91.82 & 90.04 & 90.25 & 7065600 & 68.12146 \\ 
+17500 & 96.36 & 97.53 & 96.21 & 96.92 & 7889600 & 73.15600 \\ 
+17529 & 98.14 & 98.43 & 96.71 & 96.71 & 3214400 & 72.99751 \\ 
+17562 & 116.21 & 116.50 & 111.29 & 112.22 & 15744800 & 85.31220 \\ 
+17590 & 119.00 & 120.00 & 115.78 & 115.83 & 6660000 & 88.05660 \\ 
+17619 & 94.52 & 95.54 & 93.50 & 94.65 & 7399400 & 71.95507 \\ 
+17651 & 99.05 & 99.42 & 96.52 & 96.55 & 7449400 & 74.15980 \\ 
+17682 & 100.93 & 101.10 & 98.50 & 98.94 & 18910900 & 75.99554 \\ 
+17711 & 92.84 & 94.46 & 92.56 & 92.65 & 6787900 & 71.16422 \\ 
+17743 & 91.65 & 92.63 & 91.33 & 92.23 & 8691800 & 71.56509 \\ 
+17774 & 96.25 & 96.69 & 95.72 & 95.98 & 4703100 & 74.47486 \\ 
+17802 & 94.00 & 95.16 & 93.84 & 94.58 & 4527900 & 73.38857 \\ 
+17835 & 80.98 & 81.58 & 77.74 & 77.85 & 14068500 & 61.05328 \\ 
+17865 & 90.26 & 94.27 & 89.87 & 94.27 & 12031700 & 73.93051 \\ 
+17896 & 91.60 & 92.99 & 91.23 & 92.19 & 5722100 & 72.29930 \\ 
+17927 & 78.95 & 81.31 & 78.71 & 80.29 & 11563900 & 63.73912 \\ 
+17955 & 79.46 & 79.71 & 78.75 & 79.24 & 6310800 & 62.90555 \\ 
+17984 & 80.08 & 80.90 & 79.96 & 80.59 & 7105900 & 63.97727 \\ 
+18016 & 80.68 & 80.69 & 78.68 & 79.39 & 9367400 & 63.86028 \\ 
+18047 & 77.31 & 77.57 & 76.40 & 76.71 & 4003200 & 61.70450 \\ 
+18075 & 70.58 & 72.74 & 70.33 & 72.72 & 21381500 & 58.49502 \\ 
+18108 & 66.91 & 67.38 & 65.63 & 66.62 & 11300000 & 54.40540 \\ 
+18138 & 66.40 & 66.43 & 65.49 & 65.74 & 6415100 & 53.68674 \\ 
+18169 & 74.95 & 76.44 & 74.95 & 75.72 & 8315100 & 61.83694 \\ 
+18200 & 79.71 & 79.74 & 78.74 & 79.55 & 10009400 & 65.91203 \\ 
+18229 & 88.00 & 88.09 & 87.22 & 87.73 & 3042800 & 72.68965 \\ 
+18261 & 88.21 & 88.60 & 87.88 & 88.54 & 4702100 & 73.36077 \\ 
+18292 & 81.54 & 81.72 & 80.41 & 81.02 & 13870100 & 68.03696 \\ 
+18320 & 82.79 & 85.71 & 81.58 & 85.71 & 18450000 & 71.97540 \\ 
+18352 & 75.40 & 77.92 & 74.44 & 76.19 & 20474400 & 63.98094 \\ 
+18382 & 82.97 & 83.26 & 81.23 & 82.20 & 15535800 & 70.05735 \\ 
+18411 & 91.00 & 92.89 & 89.60 & 92.67 & 13758800 & 78.98072 \\ 
+18443 & 95.97 & 98.88 & 95.83 & 98.18 & 8112500 & 83.67677 \\ 
+18474 & 95.54 & 97.25 & 93.55 & 94.91 & 14613000 & 81.87711 \\ 
+18505 & 94.12 & 96.01 & 94.01 & 95.77 & 9932300 & 82.61900 \\ 
+18535 & 87.00 & 88.44 & 86.81 & 87.59 & 8209300 & 75.56227 \\ 
+18565 & 83.20 & 86.14 & 83.00 & 85.10 & 18089100 & 74.41394 \\ 
+18596 & 105.12 & 105.42 & 103.65 & 104.58 & 20726500 & 91.44783 \\ 
+18627 & 105.26 & 107.28 & 104.85 & 107.15 & 6148100 & 93.69511 \\ 
+18656 & 104.00 & 104.49 & 101.81 & 102.48 & 9380400 & 90.65963 \\ 
+18684 & 107.68 & 108.58 & 105.36 & 107.74 & 9250000 & 95.31291 \\ 
+18717 & 106.88 & 109.18 & 106.80 & 108.22 & 9048000 & 95.73756 \\ 
+18747 & 111.47 & 112.31 & 110.11 & 111.50 & 10575400 & 99.83855 \\ 
+18775 & 113.33 & 114.48 & 112.86 & 113.20 & 7104300 & 101.36073 \\ 
+18808 & 112.21 & 112.92 & 111.63 & 112.64 & 5042600 & 100.85930 \\ 
+18838 & 119.00 & 119.15 & 116.12 & 116.30 & 9017200 & 105.29747 \\ 
+18870 & 120.83 & 121.17 & 120.03 & 120.78 & 6021800 & 109.35363 \\ 
+18900 & 109.20 & 110.42 & 107.78 & 107.87 & 7886400 & 97.66498 \\ 
+18929 & 112.09 & 114.92 & 111.42 & 114.67 & 16545000 & 105.08034 \\ 
+18961 & 116.68 & 116.79 & 115.10 & 115.28 & 8172100 & 105.63934 \\ 
+18992 & 136.04 & 136.21 & 135.30 & 135.40 & 3963400 & 124.07674 \\ 
+19023 & 136.82 & 137.17 & 135.62 & 136.89 & 10300000 & 126.74381 \\ 
+19051 & 146.65 & 148.08 & 145.76 & 147.77 & 11090600 & 136.81743 \\ 
+19082 & 162.93 & 164.66 & 162.10 & 162.11 & 8670100 & 150.09450 \\ 
+19111 & 149.56 & 149.86 & 139.93 & 146.88 & 25155900 & 137.14919 \\ 
+19143 & 148.64 & 148.88 & 146.67 & 147.37 & 11227800 & 137.60672 \\ 
+19173 & 153.17 & 154.04 & 150.87 & 153.16 & 7289500 & 143.01314 \\ 
+19202 & 145.44 & 146.30 & 139.05 & 143.51 & 17754700 & 135.25589 \\ 
+19235 & 135.69 & 136.04 & 134.17 & 134.46 & 5789600 & 126.72643 \\ 
+19265 & 142.20 & 142.32 & 134.09 & 134.21 & 15359000 & 126.49078 \\ 
+19296 & 145.17 & 146.78 & 144.08 & 146.40 & 8604800 & 139.38365 \\ 
+19326 & 158.79 & 161.18 & 156.46 & 161.18 & 12342500 & 153.45532 \\ 
+19356 & 162.23 & 162.85 & 159.82 & 161.61 & 3680400 & 153.86470 \\ 
+19388 & 145.63 & 147.85 & 144.41 & 147.75 & 5628700 & 142.00618 \\ 
+19416 & 153.96 & 154.37 & 152.62 & 153.90 & 7561700 & 147.91708 \\ 
+19447 & 158.43 & 159.57 & 157.73 & 159.37 & 4957300 & 153.17444 \\ 
+19475 & 147.97 & 151.39 & 147.44 & 151.12 & 7123800 & 146.58133 \\ 
+19508 & 136.62 & 138.71 & 135.77 & 137.96 & 12579100 & 133.81659 \\ 
+19538 & 133.47 & 135.93 & 132.80 & 134.73 & 8710500 & 130.68356 \\ 
+19569 & 150.43 & 150.50 & 147.62 & 149.58 & 9109200 & 146.69604 \\ 
+19600 & 148.39 & 148.71 & 146.87 & 146.96 & 4110700 & 144.12656 \\ 
+19629 & 152.46 & 152.53 & 148.83 & 149.06 & 5581600 & 146.18605 \\ 
+19661 & 142.09 & 142.22 & 139.68 & 141.18 & 10394000 & 139.84387 \\ 
+19691 & 138.01 & 142.70 & 138.01 & 142.39 & 9297400 & 141.04243 \\ 
+19720 & 154.54 & 155.21 & 154.41 & 154.97 & 3711400 & 153.50337 \\ 
+19753 & 165.75 & 165.86 & 163.95 & 164.40 & 4993900 & 164.39999 \\ 
+19782 & 177.87 & 178.02 & 175.39 & 176.05 & 7485700 & 176.05000 \\ 
+19810 & 181.00 & 182.30 & 180.30 & 182.10 & 5418700 & 182.10001 \\ 
+19821 & 169.21 & 171.97 & 168.40 & 169.80 & 4745000 & 169.80000 \\ 
+\bottomrule
+\end{longtable*}
+
+
+
+\end{document}

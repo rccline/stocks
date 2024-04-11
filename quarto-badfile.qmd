@@ -1,0 +1,93 @@
+---
+title: "My test document"
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+---
+
+
+
+## TRYING TO RENDER PDF: /c/Users/Robert/AppData/Local/Programs/MiKTeX/miktex/bin/x64 
+
+```{r}
+
+```
+
+
+
+## R Styled tables using tidyverse, gt and the scales packages
+
+*ABBV* = Abbvie Inc., *BTC* = Bitcoin, *ETH* = Etherium
+
+\[Torbjorn Storli0(https://www.youtube.com/watch?v=JCVlI4si46o&t=203s) suggests checking out {*XTS*} package that works with {zoo} package. These packages are included with {*quantmod*}
+
+How-to [Quarto setup chunks](https://rstudio-conf-2022.github.io/get-started-quarto/materials/03-computation-editors.html#/knitropts_chunk-defaults)
+
+```{r setup}
+
+knitr::opts_chunk$set()
+
+library(quantmod)
+library(tidyverse)
+library(gt)
+library(scales)
+
+startdate = as.Date("2014-01-01")
+enddate = as.Date("2024-04-09")
+
+ # get daily stock prices for Abbvie inc.
+getSymbols("ABBV", from = startdate, to=enddate)
+```
+
+Convert Daily stock prices to monthly stock prices
+
+```{r}
+
+monthly_prices <- to.period(ABBV, period = 'months', OHLC = FALSE)
+
+head(monthly_prices)
+tail(monthly_prices) 
+```
+
+Convert data to a tibble; and date index to its own column:
+
+```{r}
+
+ABBV_data <- as_tibble(monthly_prices) |>
+  mutate(Date = index(monthly_prices))
+```
+
+Clean up the ABBV tibble table
+
+```{r}
+
+ABBV_tibble = ABBV_data |>
+  rename(Open = ABBV.Open,
+        High = ABBV.High,
+        Low = ABBV.Low,
+        Close = ABBV.Close,
+        Volume = ABBV.Volume,
+        Adjusted = ABBV.Adjusted) |>
+
+dplyr::select(Date, Open, High, Low, Close, Volume, Adjusted)
+```
+
+Create a gt table
+
+```{r eval=TRUE}
+
+ABBV_gt <- gt(ABBV_tibble) 
+
+ABBV_tab <- ABBV_gt |>
+ tab_header(
+  
+    title = md("**<font color = blue>Abbvie Inc, Monthly Stock Prices</font>**"),
+    subtitle = md("**From** 2014 **to** 2024-04-09")
+ ) |> 
+ cols_width(c(Date:Adjusted)  ~ px(120)
+  )
+
+ABBV_tab
+```
