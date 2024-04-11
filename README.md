@@ -1,0 +1,2 @@
+# stocks
+Debugging MikTex installation.
